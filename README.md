@@ -41,12 +41,19 @@ python mystery_word.py
 The computer (that's you, writing this in Python code) must select a word at random from the list of words in the file `words.txt`, provided in this repo. This becomes the secret word for the game.
 
 ### Game Flow
+-1. Read the text file into a list.
+
+0. The computer picks a word at random from the list.
 
 1. At the start of the game, let the user know how many letters the secret word contains.
 
-2. Ask the user to supply one guess (i.e. letter) per round. This letter can be upper or lower case and it should not matter. If a user enters more than one letter, tell them the input is invalid and let them try again.
+2. Ask the user to supply one guess (i.e. letter) per round. 
+   - This letter can be upper or lower case and it should not matter. 
+   - If a user enters more than one letter, tell them the input is invalid and let them try again.
 
 3. Let the user know if their guess appears in the secret word.
+   - check if the user's guess appears in word
+   - tell them if the guess was right or wrong
 
 4. Display the partially guessed word, as well as letters that have not been guessed. For example, if the word is BOMBARD and the letters guessed are `a`, `b`, and `d`, the screen should display:
 
@@ -56,7 +63,8 @@ B _ _ B A _ D
 
 ### Game Rules
 
-A user is allowed 8 guesses. Remind the user of how many guesses they have left after each round.
+A user is allowed 8 guesses. 
+- Remind the user of how many guesses they have left after each round.
 
 _A user loses a guess only when they guess incorrectly._ If they guess a letter that is in the secret word, they do not lose a guess.
 
