@@ -1,4 +1,3 @@
-from webbrowser import get
 
 def create_board(word):
     """Let the user know how many letters the secret word contains. Make the board that shows a blank for each letter"""
@@ -10,14 +9,16 @@ def create_board(word):
     return board_list
 
 
-# def show_board(word):   
-    # TODO display _ or letter depending on guesses
-    # This will use the lists of guesses
-
+def show_board(word, board, correct_list):   
+    for letter in correct_list:
+        for idx in range(len(word)):
+            if word[idx] == letter:
+                board[idx] = letter
+    print(" ".join(board))
 
 def get_user_guess():
     """Get a guessed letter from the user and return it"""
-    print("This is the get_user_guess function.")
+    # print("This is the get_user_guess function.")
     guess = input("Guess your letter: ")
     return guess
 
@@ -26,21 +27,33 @@ def play_game():
     # computer picks a word to guess.
     # start with one word
     # TODO pick word from list
-    word_to_guess = 'dream'
+    word_to_guess = 'dream'.upper()
  
     game_board = create_board(word_to_guess)
-    print(f'The value of game_board is {game_board}')
+    # print(f'The value of game_board is {game_board}')
     correct_guesses = []
-    print(f'The value of correct_guesses is {correct_guesses}')
+    # print(f'The value of correct_guesses is {correct_guesses}')
     incorrect_guesses = []
-    print(f'The value of incorrect_guesses is {incorrect_guesses}')
-    # show_board(word_to_guess)
-    new_guess = get_user_guess()
-    print(f'The value of new_guess is {new_guess}')
-    # TODO assess whether the guess was right or wrong
-    # and put it in the appropriate list
+    # print(f'The value of incorrect_guesses is {incorrect_guesses}')
+    number_of_incorrect_guesses = 0
 
+    # get a guess from the user
+    # print(f'The value of new_guess is {new_guess}')
 
+    # make a loop that stops either when the player runs out of guesses or completes the word
+
+    while len(incorrect_guesses) < 8 and "_" in game_board:
+        new_guess = get_user_guess().upper()
+        # assess whether the guess was right or wrong
+        if new_guess in word_to_guess:
+            # and put it in the appropriate list, either correct_guesses or incorrect_guesses
+            correct_guesses.append(new_guess)
+            print('✅')
+        else:
+            incorrect_guesses.append(new_guess)
+            print('❌')
+
+        show_board(word_to_guess, game_board, correct_guesses)
 
 
 
