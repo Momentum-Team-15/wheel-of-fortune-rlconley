@@ -10,7 +10,9 @@ def create_board(word):
 
 
 # def show_board(word):   
-    #TODO display _ or letter depending on guesses
+    # TODO display _ or letter depending on guesses
+    # This will use the lists of guesses
+
 
 def get_user_guess():
     print("This is the get_user_guess function.")
@@ -33,6 +35,7 @@ def play_game():
     new_guess = get_user_guess()
     print(f'The value of new_guess is {new_guess}')
     # TODO assess whether the guess was right or wrong
+    # and put it in the appropriate list
 
 
 
