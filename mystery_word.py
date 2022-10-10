@@ -1,6 +1,7 @@
 from webbrowser import get
 
 def create_board(word):
+    """Let the user know how many letters the secret word contains. Make the board that shows a blank for each letter"""
     print(f"This is the create_board function and the value of `word` is {word}")
     board_list = []
     for letter in word:
@@ -15,16 +16,18 @@ def create_board(word):
 
 
 def get_user_guess():
+    """Get a guessed letter from the user and return it"""
     print("This is the get_user_guess function.")
     guess = input("Guess your letter: ")
     return guess
 
 def play_game():
+    """All game play happens in this function"""
     # computer picks a word to guess.
     # start with one word
     # TODO pick word from list
     word_to_guess = 'dream'
-    # Let the user know how many letters the secret word contains. Make the board that shows a blank for each letter
+ 
     game_board = create_board(word_to_guess)
     print(f'The value of game_board is {game_board}')
     correct_guesses = []
